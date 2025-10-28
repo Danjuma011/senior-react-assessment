@@ -1,0 +1,32 @@
+.drop-zone {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  background-color: #AABDD926;
+  width: 400px;
+  height: 134px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-bottom: 16px;
+  font-family: 'Public Sans', sans-serif;
+
+  &.drag-over {
+    border-color: #1976d2;
+    background-color: #e3f2fd;
+    transform: scale(1.02);
+  }
+
+  .drop-zone-content {
+    text-align: center;
+    color: #666;
+
+    .drop-text {
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0;
+      color: #666;
+      font-family: 'Public Sans', sans-serif;
+    }
+  }
+}

@@ -1,0 +1,289 @@
+// Sidebar SCSS Variables
+$primary-color: #035F5B;
+$primary-hover: #024a47;
+$text-black: #000000;
+$text-gray: #6b7280;
+$text-light-gray: #d1d5db;
+$text-white: #ffffff;
+$background-white: #ffffff;
+$border-color: #EDEDED;
+$hover-bg: rgba(209, 213, 219, 0.1);
+$primary-hover-bg: rgba(3, 95, 91, 0.1);
+
+// Sidebar Styles
+.sidebar {
+  width: 140px; // Increased to accommodate 40px padding on each side
+  height: calc(100vh - 184px); // Subtract header height + 40px spacing
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2px 2px;
+  gap: 16px;
+  position: fixed;
+  left: 0;
+  top: 184px; // Header height (144px) + 40px spacing
+  z-index: 1000;
+  overflow-y: auto;
+  overflow-x: hidden;
+  direction: rtl;
+
+  > * {
+    direction: ltr;
+  }
+
+  // Custom Scrollbar
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $text-light-gray;
+    border-radius: 2px;
+
+    &:hover {
+      background: #9ca3af;
+    }
+  }
+}
+
+// Top Navigation
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 16px 0 8px 0;
+}
+
+.sidebar-nav-container {
+  width: 56px;
+  height: 80px;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  background-color: $background-white;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 0;
+  padding: 0 6px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1.33px;
+    background-color: #EDEDED;
+    transform: translateY(-50%);
+  }
+}
+
+.sidebar-nav-button {
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+// Main Navigation
+.sidebar-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  justify-content: flex-start;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  padding: 16px 14px;
+  background-color: $background-white;
+}
+
+.sidebar-home {
+  margin-bottom: 8px;
+}
+
+.home-button {
+  width: 40px;
+  height: 40px;
+  background: $primary-color;
+  border: none;
+  color: $text-white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $primary-hover;
+  }
+}
+
+.sidebar-arrow-button {
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  color: $text-gray;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #9ca3af;
+  }
+}
+
+.sidebar-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.section-button {
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  color: $text-black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  &.active {
+    background: none;
+    border: 2px solid $primary-color;
+    color: $primary-color;
+    font-weight: 700;
+  }
+}
+
+// Bottom Controls
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0 8px 0;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  padding: 16px 33px;
+  width: 36px;
+  height: 130px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: $background-white;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 33%;
+    left: 0;
+    right: 0;
+    height: 1.33px;
+    background-color: #EDEDED;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 33%;
+    left: 0;
+    right: 0;
+    height: 1.33px;
+    background-color: #EDEDED;
+  }
+}
+
+.control-button {
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  color: #2E3C56;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(46, 60, 86, 0.1);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.control-display {
+  color: $text-black;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin: 4px 0;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .sidebar {
+    width: 120px;
+    padding: 20px 20px;
+  }
+  
+  .sidebar-nav-button,
+  .section-button {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .home-button {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .sidebar-arrow-button,
+  .control-button {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .control-display {
+    font-size: 16px;
+  }
+}

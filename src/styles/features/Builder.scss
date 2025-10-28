@@ -1,0 +1,116 @@
+.builder {
+  background-color: #f5f5f5;
+  padding: 24px 0;
+
+  .builder-content {
+    display: flex;
+    gap: 30px;
+    height: calc(100vh - 200px);
+    padding: 0 24px 0 24px;
+    margin-left: 170px;
+    transition: all 0.3s ease;
+    width: calc(100% - 194px); // Full width minus left margin and padding
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  &.sidebar-open .builder-content {
+    margin-left: 20px;
+    width: calc(100% - 44px - 600px); // Subtract sidebar width
+    margin-right: 0;
+  }
+
+  .sections-panel {
+    flex: 0 0 280px;
+    padding: 0;
+
+    h3 {
+      margin: 0 0 16px 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+  }
+
+  .drop-area {
+    flex: 1;
+    padding: 0;
+  }
+
+  .main-builder-area {
+    flex: 1;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  &.sidebar-open .main-builder-area {
+    flex: 2;
+    min-width: 0;
+  }
+
+  .add-elements-sidebar {
+    margin-left: auto;
+    margin-right: -24px; // Extend to the right edge by removing padding
+    width: calc(195px + 24px); // Add the padding back to the width
+    flex-shrink: 0; // Prevent shrinking
+  }
+
+  .add-group-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+
+    .add-group-button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px;
+      background-color: #fefefe;
+      color: #000000;
+      border: 2px solid #000000;
+      border-radius: 12px;
+      font-size: 22px;
+      font-weight: 600;
+      font-family: 'Public Sans', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  .end-components {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .end-component {
+      background-color: #D7DDE3;
+      color: #333;
+      padding: 5px 15px;
+      border-radius: 8px;
+      border: 2px solid #D7DDE3;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Public Sans', sans-serif;
+      text-align: center;
+
+      &:first-child {
+        width: fit-content;
+        align-self: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+// Footer SCSS Variables
+$sidebar-width: 140px;
+$sidebar-width-mobile: 50px;
+$footer-height: 60px;
+$footer-height-mobile: 50px;
+
+// Footer Styles
+.footer {
+  width: calc(100% - #{$sidebar-width});
+  height: $footer-height;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .footer {
+    width: calc(100% - #{$sidebar-width-mobile});
+    height: $footer-height-mobile;
+  }
+}

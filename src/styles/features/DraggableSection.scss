@@ -1,0 +1,125 @@
+.draggable-section {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: 134px;
+  margin-bottom: 12px;
+  cursor: grab;
+  transition: all 0.2s ease;
+  font-family: 'Public Sans', sans-serif;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &.dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+  }
+
+  .section-header {
+    background-color: #EDF5FF;
+    padding: 12px 16px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header-left {
+      .section-title {
+        font-weight: 600;
+        color: #1C1F23;
+        font-size: 14px;
+        font-family: 'Public Sans', sans-serif;
+      }
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .required-label {
+        font-size: 12px;
+        color: #666;
+        margin-right: 4px;
+        font-family: 'Public Sans', sans-serif;
+      }
+
+
+      .icon-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+          color: #333;
+        }
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+
+  .section-content {
+    padding: 0 0 0 14px;
+    position: relative;
+    min-height: 60px;
+    display: flex;
+    align-items: flex-start;
+
+    .content-placeholder {
+      color: #999;
+      font-style: italic;
+      font-size: 16px;
+      font-weight: 400;
+      font-family: 'Public Sans', sans-serif;
+      text-align: left;
+      margin: 0;
+      padding: 2px 0 0 0;
+      flex: 1;
+    }
+
+    .drag-handle {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: grab;
+
+      .drag-dots {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        align-items: center;
+        width: 12px;
+        
+
+        .dot-row {
+          display: flex;
+          gap: 2px;
+          justify-content: center;
+        }
+
+        .dot {
+          width: 3px;
+          height: 3px;
+          background-color: #ccc;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

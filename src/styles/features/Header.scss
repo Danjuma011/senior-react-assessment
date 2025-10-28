@@ -1,0 +1,250 @@
+// Header SCSS Variables
+$primary-color: #035F5B;
+$primary-hover: #024a47;
+$title-color: #102A5E;
+$form-id-color: #333333;
+$text-gray: #6b7280;
+$text-light-gray: #d1d5db;
+$text-white: #ffffff;
+$background-white: #ffffff;
+$border-color: #e5e7eb;
+$nav-border-color: #f3f4f6;
+$hover-bg: #f9fafb;
+$shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+$sidebar-margin: 2px;
+
+// Header Styles
+.header {
+  background: $background-white;
+  border-bottom: 1px solid $border-color;
+  box-shadow: $shadow;
+  margin: 0 $sidebar-margin;
+}
+
+// Top Bar
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  min-height: 64px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.title-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-image {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.title-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.main-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: $title-color;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.form-id {
+  font-size: 20px;
+  color: $form-id-color;
+  margin: 0;
+  font-weight: 400;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+// Button Styles
+.icon-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-gray;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $hover-bg;
+    color: #374151;
+  }
+}
+
+.back-button {
+  margin-right: 8px;
+}
+
+.outline-button {
+  background: $background-white;
+  border: 1px solid $primary-color;
+  color: $primary-color;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #f0fdfa;
+    border-color: $primary-hover;
+    color: $primary-hover;
+  }
+}
+
+.primary-button {
+  background: $primary-color;
+  border: 1px solid $primary-color;
+  color: $text-white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $primary-hover;
+    border-color: $primary-hover;
+  }
+}
+
+// Navigation Tabs
+.header-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 24px;
+  min-height: 48px;
+  border-top: 1px solid $nav-border-color;
+  gap: 32px;
+}
+
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-tab {
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  color: $form-id-color;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    color: #374151;
+    background-color: $hover-bg;
+  }
+
+  &.active {
+    color: $title-color;
+    border-bottom: 3px solid $primary-color;
+    border-radius: 2px 2px 0 0;
+
+    &:hover {
+      color: $primary-hover;
+      border-bottom-color: $primary-hover;
+    }
+  }
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .header-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .nav-tabs {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
+  .nav-tab {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  .header-nav {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 16px;
+  }
+  
+  .form-id {
+    font-size: 12px;
+  }
+  
+  .outline-button,
+  .primary-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .nav-tab {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
