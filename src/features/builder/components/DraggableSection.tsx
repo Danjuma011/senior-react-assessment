@@ -10,6 +10,7 @@ interface DraggableSectionProps {
   content: string;
   required: boolean;
   isDragging?: boolean;
+  onClick?: () => void;
 }
 
 const DraggableSection: React.FC<DraggableSectionProps> = ({
@@ -18,6 +19,7 @@ const DraggableSection: React.FC<DraggableSectionProps> = ({
   content,
   required,
   isDragging = false,
+  onClick,
 }) => {
   const {
     attributes,
@@ -48,6 +50,13 @@ const DraggableSection: React.FC<DraggableSectionProps> = ({
     // Handle more options logic here
   };
 
+  const handleClick = (e: React.MouseEvent) => {
+    // Only trigger if not clicking on interactive elements
+    if (onClick && !(e.target as HTMLElement).closest('.icon-button, .toggle-switch')) {
+      onClick();
+    }
+  };
+
   return (
     <div
       ref={setNodeRef}
@@ -55,6 +64,7 @@ const DraggableSection: React.FC<DraggableSectionProps> = ({
       className={`draggable-section ${isSortableDragging || isDragging ? 'dragging' : ''}`}
       {...attributes}
       {...listeners}
+      onClick={handleClick}
     >
       {/* Header */}
       <div className="section-header">

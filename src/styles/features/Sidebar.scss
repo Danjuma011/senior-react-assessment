@@ -12,8 +12,8 @@ $primary-hover-bg: rgba(3, 95, 91, 0.1);
 
 // Sidebar Styles
 .sidebar {
-  width: 140px; // Increased to accommodate 40px padding on each side
-  height: calc(100vh - 184px); // Subtract header height + 40px spacing
+  width: 140px;
+  height: calc(100vh - 184px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +21,7 @@ $primary-hover-bg: rgba(3, 95, 91, 0.1);
   gap: 16px;
   position: fixed;
   left: 0;
-  top: 184px; // Header height (144px) + 40px spacing
+  top: 184px;
   z-index: 1000;
   overflow-y: auto;
   overflow-x: hidden;
@@ -31,7 +31,20 @@ $primary-hover-bg: rgba(3, 95, 91, 0.1);
     direction: ltr;
   }
 
-  // Custom Scrollbar
+  @media (min-width: 1440px) {
+    width: 150px;
+    height: calc(100vh - 184px);
+    top: 184px;
+    gap: 18px;
+  }
+
+  @media (min-width: 1920px) {
+    width: 160px;
+    height: calc(100vh - 184px);
+    top: 184px;
+    gap: 20px;
+  }
+
   &::-webkit-scrollbar {
     width: 4px;
   }
@@ -50,7 +63,6 @@ $primary-hover-bg: rgba(3, 95, 91, 0.1);
   }
 }
 
-// Top Navigation
 .sidebar-top {
   display: flex;
   flex-direction: column;
@@ -59,8 +71,8 @@ $primary-hover-bg: rgba(3, 95, 91, 0.1);
 }
 
 .sidebar-nav-container {
-  width: 56px;
-  height: 80px;
+  width: 70px;
+  height: 100px;
   border: 1px solid $border-color;
   border-radius: 8px;
   background-color: $background-white;
@@ -106,7 +118,6 @@ $primary-hover-bg: rgba(3, 95, 91, 0.1);
   }
 }
 
-// Main Navigation
 .sidebar-main {
   display: flex;
   flex-direction: column;
@@ -190,7 +201,6 @@ $primary-hover-bg: rgba(3, 95, 91, 0.1);
   }
 }
 
-// Bottom Controls
 .sidebar-bottom {
   display: flex;
   flex-direction: column;
@@ -259,31 +269,14 @@ $primary-hover-bg: rgba(3, 95, 91, 0.1);
   margin: 4px 0;
 }
 
-// Responsive Design
+@media (max-width: 1024px) {
+  .sidebar {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .sidebar {
-    width: 120px;
-    padding: 20px 20px;
-  }
-  
-  .sidebar-nav-button,
-  .section-button {
-    width: 28px;
-    height: 28px;
-  }
-  
-  .home-button {
-    width: 36px;
-    height: 36px;
-  }
-  
-  .sidebar-arrow-button,
-  .control-button {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .control-display {
-    font-size: 16px;
+    display: none;
   }
 }

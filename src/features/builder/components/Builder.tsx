@@ -216,6 +216,10 @@ const Builder: React.FC = () => {
                   title="Section 1"
                   content="Title Here"
                   required={false}
+                  onClick={() => {
+                    // Simulate the same action as drag and drop
+                    dispatch(setDropped(true));
+                  }}
                 />
               </div>
               <div className="drop-area">

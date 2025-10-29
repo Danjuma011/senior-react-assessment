@@ -21,10 +21,10 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection = 1, onSectionChange })
       <div className="sidebar-top">
         <div className="sidebar-nav-container">
           <button className="sidebar-nav-button">
-            <img src="/icons/curved-arrow-back.svg" alt="Back" width="32" height="32" />
+            <img src="/icons/al.svg" alt="Back" width="32" height="32" />
           </button>
           <button className="sidebar-nav-button">
-            <img src="/icons/vector.svg" alt="Forward" width="32" height="32" />
+            <img src="/icons/round.svg" alt="Forward" width="64" height="64" />
           </button>
         </div>
       </div>

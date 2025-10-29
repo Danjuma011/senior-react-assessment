@@ -23,7 +23,7 @@ function App() {
         <Sidebar activeSection={activeSection} onSectionChange={handleSectionChange} />
         <div className="main-layout">
           <Header activeTab={activeTab} onTabChange={handleTabChange} />
-          <main className="main-content">
+          <main className={`main-content ${activeTab !== 'Builder' ? 'first-page' : ''}`}>
             {activeTab === 'Builder' ? (
               <Builder />
             ) : (

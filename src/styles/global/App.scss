@@ -5,6 +5,7 @@ $text-gray: #6b7280;
 $shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 $sidebar-width: 140px;
 $sidebar-width-mobile: 120px;
+$sidebar-width-large: 160px; // For 1920px+ screens
 $footer-height: 80px;
 $footer-height-mobile: 70px;
 
@@ -24,9 +25,9 @@ $footer-height-mobile: 70px;
   flex: 1;
   padding: 0;
   margin-left: $sidebar-width;
-  margin-top: 40px; // 40px spacing from header
-  overflow-y: auto; // Only scroll when content overflows
-  max-height: calc(100vh - 184px); // Header height + 40px spacing
+  margin-top: 40px;
+  overflow-y: hidden;
+  max-height: calc(100vh - 184px);
 
   .content-area {
     border-radius: 8px;
@@ -48,17 +49,94 @@ $footer-height-mobile: 70px;
       margin: 0 0 8px 0;
     }
   }
+
+  @media (min-width: 1440px) {
+    margin-left: 150px;
+    margin-top: 50px;
+    max-height: calc(100vh - 184px);
+    overflow-y: hidden;
+
+    .content-area {
+      padding: 32px;
+      max-width: 1400px;
+      margin: 32px auto 0;
+
+      h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 18px;
+        margin: 0 0 12px 0;
+      }
+    }
+  }
+
+  @media (min-width: 1920px) {
+    margin-left: $sidebar-width-large;
+    margin-top: 50px;
+    max-height: calc(100vh - 184px);
+    overflow-y: hidden;
+
+    .content-area {
+      padding: 40px;
+      max-width: 1600px;
+      margin: 40px auto 0;
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+      }
+
+      p {
+        font-size: 20px;
+        margin: 0 0 16px 0;
+      }
+    }
+  }
 }
 
-// Responsive Design
+.main-content.first-page {
+  margin-top: 0;
+  max-height: calc(100vh - 144px);
+}
+
+.main-content.overflow-visible {
+  overflow-y: auto;
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: 0;
+    margin-top: 0;
+    padding: 0;
+    max-height: none;
+    overflow-y: auto; // Allow scrolling on mobile
+  }
+}
+
 @media (max-width: 768px) {
   .main-content {
-    margin-left: $sidebar-width-mobile;
+    margin-left: 0;
     padding: 16px;
     padding-bottom: $footer-height-mobile;
     
     .content-area {
       padding: 16px;
+      margin: 16px auto 0;
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 12px;
+    
+    .content-area {
+      padding: 12px;
+      margin: 12px auto 0;
     }
   }
 }
